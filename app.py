@@ -20,19 +20,21 @@ def generate_alter_ego():
     traits = data.get("traits", "")
 
     prompt = f"""
-You are an AI that creates wild, eccentric alter egos based on personality traits.
+You are an AI character designer that creates deep, realistic alter egos for people based on their personality traits.
 
-Create one fictional alter ego for someone with these traits: {traits}.
+Create one believable alter ego for someone with these traits: {traits}.
+This should feel like a real person with a full backstory, not a joke or parody.
+
 Give the result in the following format:
 
-Name: [full fictional name]
-Occupation: [job title]
-Origin: [country or planet]
-Personality: [3 traits]
-Catchphrase: "[funny or dramatic quote]"
-Bio: [2-line description]
+Name: [Full realistic name]  
+Occupation: [Plausible modern or historical profession]  
+Origin: [City or region, country]  
+Personality: [3 descriptive traits that sound human]  
+Catchphrase: "[Something they often say that reveals their mindset or values]"  
+Bio: [2–3 sentence life story that hints at both their strength and struggles. Make it cinematic but realistic.]
 
-Make it unexpected, creative, and slightly absurd.
+Now generate one for the given traits.
 """
 
     headers = {
@@ -46,7 +48,7 @@ Make it unexpected, creative, and slightly absurd.
         json={
             "model": "llama3-70b-8192",
             "messages": [{"role": "user", "content": prompt}],
-            "temperature": 0.95
+            "temperature": 0.7  # Less random, more grounded
         }
     )
 
