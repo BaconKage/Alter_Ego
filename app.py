@@ -48,5 +48,9 @@ Make it unexpected, creative, and slightly absurd.
     alter_ego = result["choices"][0]["message"]["content"]
     return jsonify({"result": alter_ego})
 
+import os
+
 if __name__ == '__main__':
-    app.run(debug=True)
+    port = int(os.environ.get("PORT", 5000))
+    app.run(host="0.0.0.0", port=port)
+
